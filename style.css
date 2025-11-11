@@ -73,7 +73,7 @@ a{
 
 
 .logo-img{
-    hight: 55px;
+    height: 55px;
     width: 55px;
     border-radius: 50%;
     margin-right: 8px;  
@@ -160,8 +160,6 @@ a{
 
 
 
-
-
 /* media quires */
 
 @media screen and (max-width: 780px){
@@ -182,14 +180,14 @@ a{
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    display:absolute;
+    position:absolute;
     top: 20%;
     left : -100%;
-    transform: tanslate(-50%);
+    transform: tanslateX(-50%);
     width: 20rem;
     padding: 2rem;
-    background-color: var(--pure-white);
-    border : .1rem solid var(--orange-finger);  
+    background: var(--pure-white);
+    border: .1rem solid var(--orange-finger);  
     border-radius: 2rem; 
     box-shadow: 
     rgba(0, 0, 0, 0.05) 8px 8px 8px,
@@ -197,7 +195,44 @@ a{
       transition: all .5s ease-in-out;
 }
 
-.mobile-menu.active{
+.mobile-menu-active{
     left: 50%;
     transition: translateX(-50%);
+}
+
+/*Sections styling*/
+
+.hero-section{
+    
+    min-height: calc(100vh - 14vh);
+}
+
+
+img{
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    display: block;
+    
+}
+
+.content
+.image-content{
+    flex: 1;
+}   
+
+h1{
+    font-size: 2rem;
+    color: var(--lead);
+}
+
+h1
+span{
+    color: var(--orange-finger);
+}
+
+p{
+    font-size: 1.25rem;
+    color:gray;
+    line-height: 1.8rem;
 }
