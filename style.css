@@ -73,7 +73,9 @@ a{
 }
 
 
-
+.mt-4{
+    margin-top: 4rem;
+}
 
 
 .logo-img{
@@ -156,13 +158,47 @@ a{
     display: none;
 }
 
+.p-top{
+    padding-top: 8rem;
+}
+
+.text-center{
+    text-align: center;
+
+}
+
 
 /* footer styling */
 
 
+/* __________section 01____________________ */
 
 
+h5{
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    color: var(--orange-finger);
+    text-transform: uppercase;
+    text-decoration: underline;
+}
 
+h2{
+    font-size: 3.7rem;
+    text-transform: capitalize;
+    color: var(--lead);
+}
+
+h3{
+    font-size: 2rem;
+    color: var(--lead);
+    text-transform: capitalize;
+}
+
+.service-card{
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+}
 
 /* media quires */
 
@@ -227,7 +263,8 @@ img{
 }
 
 .content
-.image-content{
+.image-content,
+.service-card{
     flex: 1;
     flex-basis: 300px;
 }   
@@ -292,4 +329,90 @@ h1{
 
 .gap-4{
     gap: 4rem;
+}
+
+ /* section 01  */
+
+ h2{
+    font-size: 3rem;
+ }
+
+ p{
+     color:gray;
+ }
+
+
+ /* section 02  */
+
+ .order-card{
+    flex: 1;
+    flex-basis: 300px;
+    background: rgb(248, 246, 246);
+    padding: 0rem 1rem 2rem 1rem;
+    border: .1rem solid var(--gold-finger);  
+    border-radius: 2rem;
+    box-shadow: 
+    rgba(0, 0, 0, 0.05) 8px 8px 8px,
+      rgba(0, 0, 0, 0.05) 8px 8px 8px inset;
+ }
+
+
+
+
+ 
+ .order-card img {
+  width: 15rem;
+  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.5));
+}
+
+
+
+
+
+ h4{
+    font-size: 1.2rem;
+    color: var(--lead);
+ }
+
+ .order-card .price{
+    font-size: 1.5rem;
+    color: var(--orange-finger);
+    padding: 1.3rem 0 2rem 0;
+ }
+
+
+ /* section 03 */
+
+ .review-container{
+    background: red;
+ }
+    
+  .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .profile{
+        width: 4rem;
+        aspect-ratio: 1;
+        border-radius: 100vw;
+        
+    }
+    
+    .profile img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100vw;
+        object-fit: cover;
+        overflow: hidden;
+
+    }
+
+    .fa-star{
+        color: var(--gold-finger);
+    }
+
+    .mt-one-half{
+    margin-top: 0.5rem;
 }

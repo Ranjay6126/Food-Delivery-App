@@ -6,10 +6,13 @@
     <title>Food Delivery</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
+    <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
   </head>
   <body>
     <!-- -------------------Header part----------------- -->
@@ -91,63 +94,168 @@
             </a>
           </li>
         </ul>
-         
       </nav>
-     
     </header>
-    
-   
 
     <!-- _________________________Selection part_________________ -->
 
     <main>
-        <selection> 
-            <div class="hero-section flex between wapper gap-4">
-                <div class="content">
-                    
-                    <h2>Enjoy Your 
-                     Delicious<span> Food </span> </h2>
-                    
-                   <pre class="para">
+      <selection>
+        <div class="hero-section flex between wapper gap-4">
+          <div class="content">
+            <h2>Enjoy Your Delicious<span> Food </span></h2>
+
+            <pre class="para">
 We will fill your stomach with delicious food with fast delivery.
-Fresh ingredients, great taste — delivered right to your door!.</pre>
-                     <br>
+Fresh ingredients, great taste — delivered right to your door!.</pre
+            >
+            <br />
 
-                    <div class="flex gap-2 ">
-                        <a href="" class="btn">Order Now</a>
+            <div class="flex gap-2">
+              <a href="" class="btn">Order Now</a>
 
-                        <a href="" class="social-icon">
-                            <i class="fa-brands fa-square-facebook"></i>
-                        </a>
+              <a href="" class="social-icon">
+                <i class="fa-brands fa-square-facebook"></i>
+              </a>
 
-                         <a href="" class="social-icon">
-                            <i class="fa-brands fa-square-instagram"></i>
-                        </a>
+              <a href="" class="social-icon">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
 
-                         <a href="" class="social-icon">
-                            <i class="fa-brands fa-square-google-plus"></i>
-                        </a>
+              <a href="" class="social-icon">
+                <i class="fa-brands fa-square-google-plus"></i>
+              </a>
 
-                         <a href="" class="social-icon">
-                            <i class="fa-brands fa-square-twitter"></i>
-                        </a>
-
-
-                    </div>
-                </div>
-
-                <div class="image-container ">
-                    <img src="assets/delivery-boy.png" alt="hero" />
-                </div>
-
+              <a href="" class="social-icon">
+                <i class="fa-brands fa-square-twitter"></i>
+              </a>
             </div>
-        </selection>
+          </div>
+
+          <div class="image-container">
+            <img src="assets/delivery-boy.png" alt="hero" />
+          </div>
+        </div>
+      </selection>
+
+      <section>
+        <div class="p-top wrapper">
+          <div class="text-center">
+            <h5>OUR SERVICES</h5>
+            <h2>How does it work?</h2>
+          </div>
+
+          <!--  Parent div -->
+          <div class="flex text-center service-card-wrapper mt-4 gap-4">
+            <!-- Child 1 -->
+            <div class="service-card">
+              <div class="images-container">
+                <img src="assets/easy-to-order.png" alt="Easy to Order" />
+              </div>
+              <h3>Easy to Order</h3>
+              <p>You only need a few steps to order food.</p>
+            </div>
+
+            <!--  Child 2 -->
+            <div class="service-card">
+              <div class="images-container">
+                <img src="assets/best-quality.png" alt="Best Quality" />
+              </div>
+              <h3>Best Quality</h3>
+              <p>Not only fast, but our quality is also number one.</p>
+            </div>
+
+            <!--  Child 3 -->
+            <div class="service-card">
+              <div class="images-container">
+                <img src="assets/fast-delivery.png" alt="Fast Delivery" />
+              </div>
+              <h3>Fast Delivery</h3>
+              <p>Delivery that is always on time, even faster.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+  <div class="wrapper p-top">
+    <div class="text-center">
+      <h5>OUR MENU</h5>
+      <h2>Popular Menu</h2>
+    </div>
+
+    <!--  Parent wrapper for all cards -->
+    <div class="card-list text-center flex gap-2 mt-4 wapper">
+
+      <!--  Card 1 -->
+      <div class="order-card text-center ">
+        <div class="card-image">
+          <img src="assets/burger.png" alt="Double Beef Burger" />
+        </div>
+        <h4>Double Beef Burger</h4>
+        <h4 class="price">$240</h4>
+        <a href="#" class="btn">Add to cart</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <section>
+  <div class="wrapper p-top flex gap-3 wapper">
+
+    <div class="image-container">
+      <img src="assets/delivery-boy-with-phone.png" alt="delivery">
+    </div>
+
+    <div class="content ">
+     <h5>Our Reviews</h5>
+     <h2>What they say</h2>
+
+    <!-- Swiper -->
+<div class="review-container">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Each slide should include all content (profile, stars, and review) -->
+      <div class="swiper-slide flex gap-2">
+        <div class="profile">
+          <img src="assets/profile1.jpeg" alt="John Doe">
+        </div>
+
+        <h4>John Doe</h4>
+
+        <div class="stars mt-one-half">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+
+        <p>
+          "The food was absolutely delicious and arrived hot and fresh.
+          The delivery was quick and the driver was friendly. Highly recommend!"
+        </p>
+      </div>
+
+    </div> 
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div> 
+</div> 
+
+    </section>
+
     </main>
 
     <!-- ------------------------Footer------------------------------ -->
 
     <footer></footer>
 
-    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script defer src="script.js"></script>
   </body>
 </html>
