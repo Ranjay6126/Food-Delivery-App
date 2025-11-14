@@ -380,12 +380,20 @@ h1{
     padding: 1.3rem 0 2rem 0;
  }
 
+ /* .wrap-text{
+   white-space: normal;
+ } */
+
+ /* .marin-left{
+    margin-left: 0.5rem;
+ } */
 
  /* section 03 */
 
- .review-container{
+ /* .review-container{
     background: red;
- }
+ }  */
+
     
   .swiper {
       width: 100%;
@@ -397,7 +405,7 @@ h1{
         width: 4rem;
         aspect-ratio: 1;
         border-radius: 100vw;
-        
+         overflow: hidden;
     }
     
     .profile img{
@@ -405,7 +413,7 @@ h1{
         height: 100%;
         border-radius: 100vw;
         object-fit: cover;
-        overflow: hidden;
+       
 
     }
 
@@ -413,6 +421,23 @@ h1{
         color: var(--gold-finger);
     }
 
-    .mt-one-half{
+    .mt-half{
     margin-top: 0.5rem;
+}
+
+.review-container{
+    width: 650px;
+    max-width: 100%;
+    flex: 1;
+
+}
+
+.arrow{
+    width: 2.5rem ;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    background: var(--orange-finger);
+    color: var(--lead);
+    text-align: center;
+    line-height: 2.5rem;
 }

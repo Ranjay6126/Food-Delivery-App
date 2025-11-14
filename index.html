@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Delivery</title>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet"
+
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
     <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-/>
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
   </head>
   <body>
     <!-- -------------------Header part----------------- -->
@@ -178,84 +182,136 @@ Fresh ingredients, great taste — delivered right to your door!.</pre
       </section>
 
       <section>
-  <div class="wrapper p-top">
-    <div class="text-center">
-      <h5>OUR MENU</h5>
-      <h2>Popular Menu</h2>
-    </div>
+        <div class="wrapper p-top">
+          <div class="text-center">
+            <h5>OUR MENU</h5>
+            <h2>Popular Menu</h2>
+          </div>
 
-    <!--  Parent wrapper for all cards -->
-    <div class="card-list text-center flex gap-2 mt-4 wapper">
-
-      <!--  Card 1 -->
-      <div class="order-card text-center ">
-        <div class="card-image">
-          <img src="assets/burger.png" alt="Double Beef Burger" />
+          <!--  Parent wrapper for all cards -->
+          <div class="card-list text-center flex gap-2 mt-4 wapper">
+            <!--  Card 1 -->
+            <div class="order-card text-center">
+              <div class="card-image">
+                <img src="assets/burger.png" alt="Double Beef Burger" />
+              </div>
+              <h4>Double Beef Burger</h4>
+              <h4 class="price">$240</h4>
+              <a href="#" class="btn">Add to cart</a>
+            </div>
+          </div>
         </div>
-        <h4>Double Beef Burger</h4>
-        <h4 class="price">$240</h4>
-        <a href="#" class="btn">Add to cart</a>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
+      <section>
+        <div class="wrapper p-top flex gap-3">
+          <div class="image-container">
+            <img src="assets/delivery-boy-with-phone.png" />
+          </div>
 
+          <div class="content">
+            <h5>Our Reviews</h5>
+            <h2>What they say ?</h2>
 
-    <section>
-  <div class="wrapper p-top flex gap-3 wapper">
+            <div class="review-container">
+              <!-- Swiper -->
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper mt-4">
+                  <div class="swiper-slide">
+                    <div class="flex gap-2">
+                      <div class="profile">
+                        <img src="assets/Ranjay pic.jpg" alt="pic" />
+                      </div>
+                      <div>
+                        <h4>Ranjay Prajapati</h4>
+                        <div class="mt-half">
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="para">
+                      "The food was absolutely delicious and arrived hot and
+                      fresh. The delivery was quick and the driver was
+                      friendly!"
+                    </p>
+                  </div>
 
-    <div class="image-container">
-      <img src="assets/delivery-boy-with-phone.png" alt="delivery">
-    </div>
+                  <div class="swiper-slide">
+                    <div class="flex gap-2">
+                      <div class="profile">
+                        <img src="assets/Ranjay pic.jpg" alt="pic" />
+                      </div>
+                      <div>
+                        <h4>Gautam Prajapati</h4>
+                        <div class="mt-half">
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="para">
+                      "The meal was delicious and arrived warm and fresh.
+                      Delivery was quick, and the driver was very polite. Great
+                      packaging and smooth service overall."
+                    </p>
+                  </div>
 
-    <div class="content ">
-     <h5>Our Reviews</h5>
-     <h2>What they say</h2>
+                  <div class="swiper-slide">
+                    <div class="flex gap-2">
+                      <div class="profile">
+                        <img src="assets/Ranjay pic.jpg" alt="pic" />
+                      </div>
+                      <div>
+                        <h4>OmPrakesh Prajapati</h4>
+                        <div class="mt-half">
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                          <i class="fa-solid fa-star"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="para">
+                      "The food came perfectly packed and full of flavor. Fast
+                      delivery and great customer experience. Would definitely
+                      order again!"
+                    </p>
+                  </div>
+                </div>
 
-    <!-- Swiper -->
-<div class="review-container">
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
+               <div class="flex between">
+                    <a href="" class="arrow" id="next">
+                    <i class="fa-solid fa-arrow-left"></i></i>
+                   </a>
 
-      <!-- Each slide should include all content (profile, stars, and review) -->
-      <div class="swiper-slide flex gap-2">
-        <div class="profile">
-          <img src="assets/profile1.jpeg" alt="John Doe">
+                   <a href="" class="arrow" id="prev">
+                    <i class="fa-solid fa-arrow-right"></i>
+                   </a>
+
+                  
+               </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <h4>John Doe</h4>
 
-        <div class="stars mt-one-half">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </div>
+      <section>
 
-        <p>
-          "The food was absolutely delicious and arrived hot and fresh.
-          The delivery was quick and the driver was friendly. Highly recommend!"
-        </p>
-      </div>
-
-    </div> 
-
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div> 
-</div> 
-
-    </section>
-
+      </section>
+      
     </main>
 
     <!-- ------------------------Footer------------------------------ -->
 
     <footer></footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script defer src="script.js"></script>
   </body>
 </html>
