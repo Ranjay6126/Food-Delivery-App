@@ -441,3 +441,31 @@ h1{
     text-align: center;
     line-height: 2.5rem;
 }
+
+/* section - 4 */
+
+.app-container{
+
+    background: rgb(248, 246, 246);
+    padding: 3rem 6rem;
+    border-radius:  3rem;
+     border: .1rem solid var(--gold-finger);  
+
+
+}
+
+.app-container .content h2{
+    font-size: 3rem;
+}
+
+.app-container .image-container img{
+    width: 25rem;
+
+}
+
+
+/* section 4 */
+
+.app-container .content h2{
+
+}
