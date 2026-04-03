@@ -181,23 +181,102 @@ Fresh ingredients, great taste — delivered right to your door!.</pre
         </div>
       </section>
 
-      <section>
+      <section id="menu">
         <div class="wrapper p-top">
           <div class="text-center">
             <h5>OUR MENU</h5>
             <h2>Popular Menu</h2>
           </div>
 
+          <!-- Category Filtering -->
+          <div class="menu-categories flex center gap-2 mt-4">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="burger">Burger</button>
+            <button class="filter-btn" data-category="pizza">Pizza</button>
+            <button class="filter-btn" data-category="roll">Rolls</button>
+            <button class="filter-btn" data-category="other">Others</button>
+          </div>
+
           <!--  Parent wrapper for all cards -->
           <div class="card-list text-center flex gap-2 mt-4 wapper">
-            <!--  Card 1 -->
-            <div class="order-card text-center">
+            <!--  Card 1: Burger -->
+            <div class="order-card text-center" data-category="burger">
               <div class="card-image">
                 <img src="assets/burger.png" alt="Double Beef Burger" />
               </div>
               <h4>Double Beef Burger</h4>
-              <h4 class="price">$240</h4>
-              <a href="#" class="btn">Add to cart</a>
+              <h4 class="price">$12.00</h4>
+              <a href="#" class="btn add-to-cart" data-name="Double Beef Burger" data-price="12.00" data-img="assets/burger.png">Add to cart</a>
+            </div>
+
+            <!-- Card 2: Pizza -->
+            <div class="order-card text-center" data-category="pizza">
+              <div class="card-image">
+                <img src="assets/pizza.png" alt="Special Pizza" />
+              </div>
+              <h4>Special Pizza</h4>
+              <h4 class="price">$15.50</h4>
+              <a href="#" class="btn add-to-cart" data-name="Special Pizza" data-price="15.50" data-img="assets/pizza.png">Add to cart</a>
+            </div>
+
+            <!-- Card 3: Chicken Roll -->
+            <div class="order-card text-center" data-category="roll">
+              <div class="card-image">
+                <img src="assets/chicken-roll.png" alt="Chicken Roll" />
+              </div>
+              <h4>Chicken Roll</h4>
+              <h4 class="price">$8.00</h4>
+              <a href="#" class="btn add-to-cart" data-name="Chicken Roll" data-price="8.00" data-img="assets/chicken-roll.png">Add to cart</a>
+            </div>
+
+            <!-- Card 4: Fried Chicken -->
+            <div class="order-card text-center" data-category="other">
+              <div class="card-image">
+                <img src="assets/fried-chicken.png" alt="Fried Chicken" />
+              </div>
+              <h4>Fried Chicken</h4>
+              <h4 class="price">$10.00</h4>
+              <a href="#" class="btn add-to-cart" data-name="Fried Chicken" data-price="10.00" data-img="assets/fried-chicken.png">Add to cart</a>
+            </div>
+
+            <!-- Card 5: Lasagna -->
+            <div class="order-card text-center" data-category="other">
+              <div class="card-image">
+                <img src="assets/lasagna.png" alt="Lasagna" />
+              </div>
+              <h4>Lasagna</h4>
+              <h4 class="price">$14.00</h4>
+              <a href="#" class="btn add-to-cart" data-name="Lasagna" data-price="14.00" data-img="assets/lasagna.png">Add to cart</a>
+            </div>
+
+            <!-- Card 6: Sandwich -->
+            <div class="order-card text-center" data-category="other">
+              <div class="card-image">
+                <img src="assets/sandwich.png" alt="Club Sandwich" />
+              </div>
+              <h4>Club Sandwich</h4>
+              <h4 class="price">$7.50</h4>
+              <a href="#" class="btn add-to-cart" data-name="Club Sandwich" data-price="7.50" data-img="assets/sandwich.png">Add to cart</a>
+            </div>
+
+            <!-- Card 7: Spaghetti -->
+            <div class="order-card text-center" data-category="other">
+              <div class="card-image">
+                <img src="assets/spaghetti.png" alt="Spaghetti" />
+              </div>
+              <h4>Spaghetti</h4>
+              <h4 class="price">$11.00</h4>
+              <a href="#" class="btn add-to-cart" data-name="Spaghetti" data-price="11.00" data-img="assets/spaghetti.png">Add to cart</a>
+            </div>
+
+            <!-- Card 8: Spring Roll -->
+            <div class="order-card text-center" data-category="roll">
+              <div class="card-image">
+                <img src="assets/spring-roll.png" alt="Spring Roll" />
+              </div>
+              <h4>Spring Roll</h4>
+              <h4 class="price">$6.00</h4>
+              <a href="#" class="btn add-to-cart" data-name="Spring Roll" data-price="6.00" data-img="assets/spring-roll.png">Add to cart</a>
             </div>
           </div>
         </div>
