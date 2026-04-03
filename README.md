@@ -39,4 +39,4 @@ Order history
 
 Backend integration
 
-Payment gateway simulation
+Payment gateway simulations
