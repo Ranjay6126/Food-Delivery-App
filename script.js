@@ -1,12 +1,11 @@
 // =========================
 //  GLOBAL SELECTORS
 // =========================
-
 const hamburger = document.querySelector(".hamburg");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cartValue = document.querySelector(".cart-value");
 const navbar = document.querySelector("header");
-const navLinks = document.querySelectorAll("nav ul li a");
+const navLinks = document.querySelectorAll(".navlist li a");
 const cartBtn = document.querySelector("#cart-btn");
 const cartSidebar = document.querySelector(".cart-sidebar");
 const closeCart = document.querySelector(".close-cart");
@@ -21,7 +20,7 @@ const foodCards = document.querySelectorAll(".order-card");
 // =========================
 let cart = [];
 
-// Load cart from localStorage if exists
+// Load cart from localStorage
 const savedCart = localStorage.getItem('foodieCart');
 if (savedCart) {
   cart = JSON.parse(savedCart);
@@ -29,27 +28,27 @@ if (savedCart) {
 }
 
 function updateCartUI() {
-  // Update counter
   const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartValue.textContent = ` ${totalCount} `;
+  cartValue.textContent = totalCount;
   
-  // Update sidebar
   cartItemsContainer.innerHTML = '';
   let totalPrice = 0;
 
   cart.forEach((item, index) => {
     totalPrice += item.price * item.quantity;
     const cartItem = document.createElement('div');
-    cartItem.classList.add('cart-item');
+    cartItem.classList.add('cart-item', 'flex', 'between');
     cartItem.innerHTML = `
-      <img src="${item.img}" alt="${item.name}">
-      <div class="cart-item-info">
-        <h4>${item.name}</h4>
-        <p>$${item.price.toFixed(2)}</p>
-        <div class="cart-item-qty">
-          <button class="qty-btn minus" data-index="${index}">-</button>
-          <span>${item.quantity}</span>
-          <button class="qty-btn plus" data-index="${index}">+</button>
+      <div class="flex gap-1">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="cart-item-info">
+          <h4>${item.name}</h4>
+          <p>$${item.price.toFixed(2)}</p>
+          <div class="cart-item-qty flex gap-1">
+            <button class="qty-btn minus" data-index="${index}">-</button>
+            <span>${item.quantity}</span>
+            <button class="qty-btn plus" data-index="${index}">+</button>
+          </div>
         </div>
       </div>
       <i class="fa-solid fa-trash remove-item" data-index="${index}"></i>
@@ -61,10 +60,10 @@ function updateCartUI() {
   localStorage.setItem('foodieCart', JSON.stringify(cart));
 }
 
-// Add to Cart
-document.querySelectorAll(".add-to-cart").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
+// Add to Cart Event
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add-to-cart")) {
+    const btn = e.target;
     const name = btn.getAttribute("data-name");
     const price = parseFloat(btn.getAttribute("data-price"));
     const img = btn.getAttribute("data-img");
@@ -81,11 +80,7 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
     // Animation
     cartValue.classList.add("bump");
     setTimeout(() => cartValue.classList.remove("bump"), 300);
-    
-    // Show cart sidebar briefly or just notify
-    // cartSidebar.classList.add("open");
-    // cartOverlay.classList.add("show");
-  });
+  }
 });
 
 // Cart sidebar actions (Qty, Remove)
@@ -101,34 +96,23 @@ cartItemsContainer.addEventListener("click", (e) => {
   updateCartUI();
 });
 
-// Toggle Sidebar
-cartBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  cartSidebar.classList.add("open");
-  cartOverlay.classList.add("show");
-});
+// Sidebar Toggle
+const toggleCart = (show) => {
+  cartSidebar.classList.toggle("open", show);
+  cartOverlay.classList.toggle("show", show);
+};
 
-closeCart.addEventListener("click", () => {
-  cartSidebar.classList.remove("open");
-  cartOverlay.classList.remove("show");
-});
+cartBtn.addEventListener("click", (e) => { e.preventDefault(); toggleCart(true); });
+closeCart.addEventListener("click", () => toggleCart(false));
+cartOverlay.addEventListener("click", () => toggleCart(false));
 
-cartOverlay.addEventListener("click", () => {
-  cartSidebar.classList.remove("open");
-  cartOverlay.classList.remove("show");
-});
-
-// Checkout Button
+// Checkout
 document.querySelector(".checkout-btn").addEventListener("click", () => {
-  if (cart.length === 0) {
-    alert("Your cart is empty!");
-    return;
-  }
-  alert("🎉 Thank you for your order! It's on the way.");
+  if (cart.length === 0) return alert("Your cart is empty!");
+  alert("🎉 Order placed successfully! Thank you.");
   cart = [];
   updateCartUI();
-  cartSidebar.classList.remove("open");
-  cartOverlay.classList.remove("show");
+  toggleCart(false);
 });
 
 // =========================
@@ -136,145 +120,67 @@ document.querySelector(".checkout-btn").addEventListener("click", () => {
 // =========================
 filterBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    // Active class toggle
     filterBtns.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
     const category = btn.getAttribute("data-category");
-    
     foodCards.forEach(card => {
-      if (category === "all" || card.getAttribute("data-category") === category) {
-        card.classList.remove("hide");
-      } else {
-        card.classList.add("hide");
-      }
+      const show = category === "all" || card.getAttribute("data-category") === category;
+      card.style.display = show ? "block" : "none";
     });
   });
 });
 
 // =========================
-// 3️⃣ MOBILE MENU TOGGLE
-// =========================
-hamburger.addEventListener("click", (e) => {
-  e.preventDefault();
-  mobileMenu.classList.toggle("open");
-});
-
-// Close menu when any mobile link is clicked
-document.querySelectorAll(".mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-  });
-});
-
-// =========================
-// 4️⃣ STICKY NAVBAR ON SCROLL
+// 3️⃣ NAVIGATION & SCROLL
 // =========================
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 80) navbar.classList.add("sticky");
-  else navbar.classList.remove("sticky");
+  navbar.parentElement.classList.toggle("sticky", window.scrollY > 80);
 });
 
-// =========================
-// 5️⃣ SWIPER SLIDER INITIALIZATION
-// =========================
-const swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  loop: true,
-  autoplay: {
-    delay: 3000,
-  },
-});
-
-// Custom Arrow Control
-document.querySelector("#next").addEventListener("click", (e) => {
-  e.preventDefault();
-  swiper.slidePrev();
-});
-
-document.querySelector("#prev").addEventListener("click", (e) => {
-  e.preventDefault();
-  swiper.slideNext();
-});
-
-// =========================
-// 6️⃣ SCROLL ANIMATION
-// =========================
-const observeItems = document.querySelectorAll(
-  ".service-card, .order-card, .app-container, .review-container"
-);
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-observeItems.forEach((item) => observer.observe(item));
-
-// =========================
-// 7️⃣ EMAIL SUBSCRIBE
-// =========================
-const subscribeBtn = document.querySelector("#subscribe-btn");
-const subscribeInput = document.querySelector("#email-input");
-
-if (subscribeBtn) {
-  subscribeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const email = subscribeInput.value.trim();
-    if (email === "" || !email.includes("@")) {
-      alert("Please enter a valid email!");
-    } else {
-      alert("✅ Thank you for subscribing!");
-      subscribeInput.value = "";
-    }
-  });
-}
-
-// =========================
-// 8️⃣ ACTIVE MENU HIGHLIGHT & SMOOTH SCROLL
-// =========================
-const sections = document.querySelectorAll("section, selection");
-
+// Active Link Highlighting
+const sections = document.querySelectorAll("section");
 window.addEventListener("scroll", () => {
-  let scrollPos = window.scrollY + 150;
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 100) current = section.getAttribute("id");
+  });
 
-  sections.forEach((sec) => {
-    if (scrollPos > sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
-      const id = sec.getAttribute("id");
-      if (id) {
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${id}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-    }
+  navLinks.forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   });
 });
 
-// Smooth Scroll for all anchor links
+// Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
     e.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    
-    if (targetElement) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
       window.scrollTo({
-        top: targetElement.offsetTop - 70, // Adjust for sticky header
+        top: target.offsetTop - 80,
         behavior: 'smooth'
       });
     }
   });
 });
+
+// =========================
+// 4️⃣ SWIPER & OBSERVER
+// =========================
+new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: { delay: 4000 },
+  navigation: { nextEl: "#next", prevEl: "#prev" }
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("show");
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll(".service-card, .order-card, .review-card").forEach(el => observer.observe(el));
+
 
