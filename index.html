@@ -27,7 +27,6 @@
           <img src="assets/favicon.png" alt="logo" class="logo-img" />
         </a>
 
-        <!-- Desktop Menu -->
         <ul class="navlist flex gap-3">
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="#menu">Menu</a></li>
@@ -47,11 +46,19 @@
             <i class="fa-solid fa-arrow-right-to-bracket ml-2"></i>
           </a>
 
-          <a href="#" class="hamburg">
+          <button class="hamburg" type="button" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
-          </a>
+          </button>
         </div>
       </nav>
+
+      <div class="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
     </header>
 
     <main>
@@ -75,7 +82,7 @@
           </div>
 
           <div class="image-container">
-            <img src="assets/delivery-boy.png" alt="Delivery Hero" />
+            <img src="assets/delivery-boy.png" alt="Delivery hero carrying pizza" class="hero-image" />
           </div>
         </div>
       </section>
@@ -322,6 +329,8 @@
       </div>
     </div>
 
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   </body>
