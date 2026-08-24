@@ -3,28 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Food Delivery</title>
+    <title>Foodie — Delicious Food Delivered To You</title>
+    <meta name="description" content="Foodie delivers hot, delicious meals from top local kitchens straight to your doorstep in under 30 minutes." />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css" />
 
     <script defer src="script.js"></script>
   </head>
   <body>
-    <!-- Header Section -->
-    <header>
+    <!-- ================= Header ================= -->
+    <header id="header">
       <nav class="navbar flex between wapper">
-        <a href="#home" class="logo flex center">
-          <span>Foodie</span>.
-          <img src="assets/favicon.png" alt="logo" class="logo-img" />
+        <a href="#home" class="logo">
+          <img src="assets/favicon.png" alt="Foodie logo" class="logo-img" />
+          <span>Foodie<i>.</i></span>
         </a>
 
         <ul class="navlist flex gap-3">
@@ -36,16 +31,11 @@
         </ul>
 
         <div class="desktop-action flex gap-2">
-          <a href="#" class="cart-icon" id="cart-btn">
+          <button class="cart-icon" id="cart-btn" aria-label="Open basket">
             <i class="fa-solid fa-bag-shopping"></i>
             <span class="cart-value">0</span>
-          </a>
-
-          <a href="#" class="btn sign-in-btn">
-            Sign In
-            <i class="fa-solid fa-arrow-right-to-bracket ml-2"></i>
-          </a>
-
+          </button>
+          <button class="btn btn-sm" id="sign-in-btn">Sign In</button>
           <button class="hamburg" type="button" aria-label="Toggle menu" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
           </button>
@@ -62,233 +52,372 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
+      <!-- ================= Hero ================= -->
       <section id="home">
         <div class="hero-section flex between wapper gap-4">
           <div class="content">
+            <span class="hero-tag"><i class="fa-solid fa-bolt"></i> Lightning-fast delivery</span>
             <h2>Delicious Food Delivered To Your <span>Doorstep</span></h2>
             <p class="para">
-              Experience the best culinary delights from top local restaurants. 
-              Fresh ingredients, lightning-fast delivery, and unbeatable taste.
+              Craving something tasty? Get hot, fresh meals from the best local
+              kitchens delivered to your door in under 30 minutes.
             </p>
-            <div class="flex gap-2">
-              <a href="#menu" class="btn">Order Now</a>
-              <div class="social-links flex gap-1">
-                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-              </div>
+            <div class="hero-actions flex gap-2 wrap">
+              <a href="#menu" class="btn">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#services" class="btn btn-ghost">How It Works</a>
+            </div>
+            <div class="hero-stats flex gap-4 wrap">
+              <div class="stat"><strong>1M+</strong><span>Orders Delivered</span></div>
+              <div class="stat"><strong>500+</strong><span>Restaurant Partners</span></div>
+              <div class="stat"><strong>4.9 <i class="fa-solid fa-star"></i></strong><span>Average Rating</span></div>
             </div>
           </div>
 
           <div class="image-container">
-            <img src="assets/delivery-boy.png" alt="Delivery hero carrying pizza" class="hero-image" />
+            <div class="hero-blob"></div>
+            <img src="assets/delivery-boy.png" alt="Delivery rider carrying a food order" class="hero-image" />
+            <div class="float-card chip-1">
+              <i class="fa-solid fa-stopwatch"></i>
+              <div><strong>30 min</strong><span>Avg. delivery</span></div>
+            </div>
+            <div class="float-card chip-2">
+              <i class="fa-solid fa-star"></i>
+              <div><strong>4.9 rating</strong><span>10K+ reviews</span></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Services Section -->
+      <!-- ================= Menu ================= -->
+      <section id="menu">
+        <div class="wapper p-top">
+          <div class="text-center mb-4 section-head">
+            <h5>Our Menu</h5>
+            <h2>Most Popular Items</h2>
+            <p class="para">From juicy burgers to cheesy pasta — pick a craving, we'll handle the rest.</p>
+          </div>
+
+          <div class="menu-toolbar flex wrap center gap-2">
+            <label class="search-box" for="search-input">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="search-input" placeholder="Search your favorite food..." autocomplete="off" />
+            </label>
+            <div class="menu-categories flex center gap-1 wrap">
+              <button class="filter-btn active" data-category="all">All</button>
+              <button class="filter-btn" data-category="burger">Burgers</button>
+              <button class="filter-btn" data-category="pizza">Pizza</button>
+              <button class="filter-btn" data-category="chicken">Chicken</button>
+              <button class="filter-btn" data-category="rolls">Rolls &amp; Wraps</button>
+              <button class="filter-btn" data-category="pasta">Pasta</button>
+            </div>
+          </div>
+
+          <p class="results-count text-center" id="results-count">Showing 8 of 8 dishes</p>
+
+          <div class="card-list" id="card-list">
+            <!-- Dish 01 -->
+            <article class="order-card text-center" data-category="burger" data-tags="burger beef cheese grilled double patty">
+              <span class="food-badge b-popular">Popular</span>
+              <div class="food-img-wrap"><img src="assets/burger.png" alt="Double Beef Burger" loading="lazy" /></div>
+              <h4>Double Beef Burger</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.9</span><em>(320)</em></div>
+              <p>Juicy double beef patty stacked with melted cheddar.</p>
+              <div class="order-foot flex between">
+                <div class="price">$12.99</div>
+                <button class="btn add-to-cart" data-name="Double Beef Burger" data-price="12.99" data-img="assets/burger.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 02 -->
+            <article class="order-card text-center" data-category="pizza" data-tags="pizza pepperoni cheese italian spicy">
+              <span class="food-badge b-hot">Hot!</span>
+              <div class="food-img-wrap"><img src="assets/pizza.png" alt="Special Pepperoni Pizza" loading="lazy" /></div>
+              <h4>Special Pepperoni</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.8</span><em>(256)</em></div>
+              <p>Loaded with spicy pepperoni and stretchy mozzarella.</p>
+              <div class="order-foot flex between">
+                <div class="price">$15.50</div>
+                <button class="btn add-to-cart" data-name="Special Pepperoni" data-price="15.50" data-img="assets/pizza.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 03 -->
+            <article class="order-card text-center" data-category="chicken" data-tags="chicken fried crispy bucket golden">
+              <span class="food-badge b-chef">Chef's Pick</span>
+              <div class="food-img-wrap"><img src="assets/fried-chicken.png" alt="Crispy Fried Chicken" loading="lazy" /></div>
+              <h4>Crispy Fried Chicken</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.9</span><em>(198)</em></div>
+              <p>Golden and crunchy outside, tender and juicy inside.</p>
+              <div class="order-foot flex between">
+                <div class="price">$10.99</div>
+                <button class="btn add-to-cart" data-name="Crispy Fried Chicken" data-price="10.99" data-img="assets/fried-chicken.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 04 -->
+            <article class="order-card text-center" data-category="rolls" data-tags="roll wrap shawarma paratha grilled chicken">
+              <span class="food-badge b-new">New</span>
+              <div class="food-img-wrap"><img src="assets/chicken-roll.png" alt="Chicken Roll" loading="lazy" /></div>
+              <h4>Chicken Roll</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.7</span><em>(142)</em></div>
+              <p>Grilled chicken and crisp veggies in a soft paratha wrap.</p>
+              <div class="order-foot flex between">
+                <div class="price">$8.00</div>
+                <button class="btn add-to-cart" data-name="Chicken Roll" data-price="8.00" data-img="assets/chicken-roll.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 05 -->
+            <article class="order-card text-center" data-category="rolls" data-tags="sandwich toast club bread veggies mayo">
+              <div class="food-img-wrap"><img src="assets/sandwich.png" alt="Club Sandwich" loading="lazy" /></div>
+              <h4>Club Sandwich</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.6</span><em>(98)</em></div>
+              <p>Triple-layered toast packed with fresh veggies and mayo.</p>
+              <div class="order-foot flex between">
+                <div class="price">$7.49</div>
+                <button class="btn add-to-cart" data-name="Club Sandwich" data-price="7.49" data-img="assets/sandwich.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 06 -->
+            <article class="order-card text-center" data-category="rolls" data-tags="spring rolls veggie vegan starter snack crispy">
+              <span class="food-badge b-new">Veg</span>
+              <div class="food-img-wrap"><img src="assets/spring-roll.png" alt="Veg Spring Rolls" loading="lazy" /></div>
+              <h4>Veg Spring Rolls</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.5</span><em>(76)</em></div>
+              <p>Crunchy golden rolls stuffed with seasoned vegetables.</p>
+              <div class="order-foot flex between">
+                <div class="price">$5.99</div>
+                <button class="btn add-to-cart" data-name="Veg Spring Rolls" data-price="5.99" data-img="assets/spring-roll.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 07 -->
+            <article class="order-card text-center" data-category="pasta" data-tags="spaghetti pasta italian noodles meat bolognese">
+              <span class="food-badge b-hot">Hot!</span>
+              <div class="food-img-wrap"><img src="assets/spaghetti.png" alt="Spaghetti Bolognese" loading="lazy" /></div>
+              <h4>Spaghetti Bolognese</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.8</span><em>(210)</em></div>
+              <p>Classic Italian spaghetti tossed in rich meat sauce.</p>
+              <div class="order-foot flex between">
+                <div class="price">$13.25</div>
+                <button class="btn add-to-cart" data-name="Spaghetti Bolognese" data-price="13.25" data-img="assets/spaghetti.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+            <!-- Dish 08 -->
+            <article class="order-card text-center" data-category="pasta" data-tags="lasagna pasta beef baked italian cheese">
+              <span class="food-badge b-popular">Popular</span>
+              <div class="food-img-wrap"><img src="assets/lasagna.png" alt="Beef Lasagna" loading="lazy" /></div>
+              <h4>Beef Lasagna</h4>
+              <div class="rating"><i class="fa-solid fa-star"></i><span>4.9</span><em>(187)</em></div>
+              <p>Layers of pasta, savory beef and creamy béchamel.</p>
+              <div class="order-foot flex between">
+                <div class="price">$14.00</div>
+                <button class="btn add-to-cart" data-name="Beef Lasagna" data-price="14.00" data-img="assets/lasagna.png">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </article>
+
+
+          </div><!-- /card-list -->
+
+          <div class="empty-results text-center hidden" id="empty-results">
+            <img src="assets/favicon.png" alt="" />
+            <h3>No dishes found</h3>
+            <p>We couldn't find anything for that. Try a different keyword or category.</p>
+            <button class="btn" id="reset-filters">Reset Filters</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Services ================= -->
       <section id="services">
-        <div class="p-top wapper">
-          <div class="text-center mb-4">
-            <h5>OUR SERVICES</h5>
+        <div class="wapper p-top">
+          <div class="text-center mb-4 section-head">
+            <h5>Our Services</h5>
             <h2>Why Choose Foodie?</h2>
+            <p class="para">We make ordering food effortless, so you can focus on enjoying every bite.</p>
           </div>
 
           <div class="flex wrap center gap-4 mt-4">
-            <div class="service-card text-center">
+            <article class="service-card text-center">
               <div class="images-container">
-                <img src="assets/easy-to-order.png" alt="Easy to Order" />
+                <img src="assets/easy-to-order.png" alt="Easy to order illustration" />
               </div>
               <h3>Easy To Order</h3>
-              <p>Just a few clicks and your food is on its way.</p>
-            </div>
+              <p>Pick your favorites, tap once, and your food is already on its way.</p>
+            </article>
 
-            <div class="service-card text-center">
+            <article class="service-card text-center">
               <div class="images-container">
-                <img src="assets/fast-delivery.png" alt="Fast Delivery" />
+                <img src="assets/fast-delivery.png" alt="Fast delivery illustration" />
               </div>
               <h3>Fastest Delivery</h3>
-              <p>We deliver your food within 30 minutes.</p>
-            </div>
+              <p>Hot and fresh at your door within 30 minutes — every time.</p>
+            </article>
 
-            <div class="service-card text-center">
+            <article class="service-card text-center">
               <div class="images-container">
-                <img src="assets/best-quality.png" alt="Best Quality" />
+                <img src="assets/best-quality.png" alt="Best quality illustration" />
               </div>
               <h3>Best Quality</h3>
-              <p>Only the freshest ingredients from top-rated kitchens.</p>
-            </div>
+              <p>Fresh ingredients from top-rated kitchens, hand-checked daily.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- About Section -->
+      <!-- ================= About ================= -->
       <section id="about">
         <div class="wapper p-top flex wrap gap-4 between">
-          <div class="image-container flex-1">
-            <img src="assets/delivery-boy-with-phone.png" alt="About Foodie" />
+          <div class="image-container about-img">
+            <img src="assets/delivery-boy-with-phone.png" alt="Foodie rider checking the app" />
+            <div class="exp-badge"><strong>10+</strong><span>Years of<br />experience</span></div>
           </div>
-          <div class="content flex-1">
-            <h5>ABOUT US</h5>
+
+          <div class="content about-content">
+            <h5>About Us</h5>
             <h2>The Story Behind Our Passion</h2>
             <p class="para">
-              We started with a simple goal: to make gourmet food accessible to everyone. 
-              Our platform connects you with the heart of your local food scene.
+              We started with one simple goal: making great food effortless to
+              get. Today we connect thousands of hungry customers with the
+              heart of their local food scene.
             </p>
             <ul class="features-list flex column gap-2">
-              <li class="flex gap-1">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Fresh & Organic Ingredients</span>
-              </li>
-              <li class="flex gap-1">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Eco-friendly Packaging</span>
-              </li>
-              <li class="flex gap-1">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>24/7 Customer Support</span>
-              </li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Fresh &amp; organic ingredients</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Eco-friendly packaging</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>Live order tracking</span></li>
+              <li><i class="fa-solid fa-circle-check"></i><span>24/7 customer support</span></li>
             </ul>
-            <a href="#" class="btn mt-4">Learn More</a>
+            <a href="#menu" class="btn mt-2">Explore Menu <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
       </section>
 
-      <!-- Menu Section -->
-      <section id="menu">
-        <div class="wapper p-top">
-          <div class="text-center mb-4">
-            <h5>OUR MENU</h5>
-            <h2>Most Popular Items</h2>
-          </div>
 
-          <div class="menu-categories">
-            <button class="filter-btn active" data-category="all">All</button>
-            <button class="filter-btn" data-category="burger">Burgers</button>
-            <button class="filter-btn" data-category="pizza">Pizza</button>
-            <button class="filter-btn" data-category="roll">Rolls</button>
-            <button class="filter-btn" data-category="other">Others</button>
-          </div>
-
-          <div class="card-list">
-            <!-- Burgers -->
-            <div class="order-card text-center" data-category="burger">
-              <img src="assets/burger.png" alt="Classic Burger" />
-              <h4>Double Beef Burger</h4>
-              <div class="price">$12.99</div>
-              <button class="btn add-to-cart" data-name="Double Beef Burger" data-price="12.99" data-img="assets/burger.png">
-                Add to Cart
-              </button>
-            </div>
-
-            <!-- Pizza -->
-            <div class="order-card text-center" data-category="pizza">
-              <img src="assets/pizza.png" alt="Pepperoni Pizza" />
-              <h4>Special Pepperoni</h4>
-              <div class="price">$15.50</div>
-              <button class="btn add-to-cart" data-name="Special Pepperoni" data-price="15.50" data-img="assets/pizza.png">
-                Add to Cart
-              </button>
-            </div>
-
-            <!-- Rolls -->
-            <div class="order-card text-center" data-category="roll">
-              <img src="assets/chicken-roll.png" alt="Chicken Roll" />
-              <h4>Chicken Roll</h4>
-              <div class="price">$8.00</div>
-              <button class="btn add-to-cart" data-name="Chicken Roll" data-price="8.00" data-img="assets/chicken-roll.png">
-                Add to Cart
-              </button>
-            </div>
-
-            <!-- Others -->
-            <div class="order-card text-center" data-category="other">
-              <img src="assets/lasagna.png" alt="Lasagna" />
-              <h4>Beef Lasagna</h4>
-              <div class="price">$14.00</div>
-              <button class="btn add-to-cart" data-name="Beef Lasagna" data-price="14.00" data-img="assets/lasagna.png">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Reviews Section -->
+      <!-- ================= Reviews ================= -->
       <section id="reviews">
         <div class="wapper p-top">
-          <div class="text-center mb-4">
-            <h5>REVIEWS</h5>
+          <div class="text-center mb-4 section-head">
+            <h5>Reviews</h5>
             <h2>What Our Customers Say</h2>
+            <p class="para">Real words from real food lovers who keep coming back for more.</p>
           </div>
-          
-          <div class="review-wrapper mt-4">
+
+          <div class="review-wrapper mt-2">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
                 <!-- Review 1 -->
                 <div class="swiper-slide">
-                  <div class="review-card flex column center text-center">
-                    <img src="assets/Ranjay pic.jpg" alt="User" class="user-img" />
+                  <article class="review-card flex column center text-center">
+                    <img src="assets/Ranjay pic.jpg" alt="Ranjay Prajapati" class="user-img" loading="lazy" />
                     <h4>Ranjay Prajapati</h4>
                     <div class="stars flex center gap-1">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p>"The best delivery app in town! Food arrives piping hot and the drivers are very professional."</p>
-                  </div>
+                    <p>"The best delivery app in town! Food arrives piping hot and the drivers are always professional."</p>
+                  </article>
                 </div>
-                <!-- Add more reviews similarly -->
+
+                <!-- Review 2 -->
+                <div class="swiper-slide">
+                  <article class="review-card flex column center text-center">
+                    <img src="assets/profile1.jpeg" alt="Sarah Mitchell" class="user-img" loading="lazy" />
+                    <h4>Sarah Mitchell</h4>
+                    <div class="stars flex center gap-1">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Ordered at midnight and still got my pizza in 25 minutes. Foodie has completely spoiled me!"</p>
+                  </article>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="swiper-slide">
+                  <article class="review-card flex column center text-center">
+                    <img src="assets/profile2.jpeg" alt="David Chen" class="user-img" loading="lazy" />
+                    <h4>David Chen</h4>
+                    <div class="stars flex center gap-1">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p>"Live order tracking is oddly satisfying to watch — plus their spring rolls are dangerously good."</p>
+                  </article>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="swiper-slide">
+                  <article class="review-card flex column center text-center">
+                    <img src="assets/profile3.jpeg" alt="Emily Rodriguez" class="user-img" loading="lazy" />
+                    <h4>Emily Rodriguez</h4>
+                    <div class="stars flex center gap-1">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Beautiful app, fair prices, and the loyalty deals actually save real money. Highly recommend!"</p>
+                  </article>
+                </div>
               </div>
+
               <div class="swiper-navigation flex center gap-2 mt-2">
-                <button class="arrow" id="prev"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="arrow" id="next"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="arrow" id="prev" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="arrow" id="next" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Contact Section -->
+      <!-- ================= Newsletter ================= -->
       <section id="contact">
         <div class="wapper p-top">
           <div class="contact-card flex wrap gap-4 between">
-            <div class="content flex-1">
-              <h5>SUBSCRIBE</h5>
+            <div class="content contact-content flex-1">
+              <h5>Subscribe</h5>
               <h2>Join Our Newsletter</h2>
-              <p class="para">Get exclusive discounts and early access to new menu items delivered to your inbox.</p>
+              <p class="para">Get exclusive discounts and early access to new menu items, straight to your inbox.</p>
               <div class="subscribe-form flex">
                 <input type="email" id="email-input" placeholder="Your email address" />
                 <button id="subscribe-btn" class="btn">Subscribe</button>
               </div>
             </div>
-            <div class="image-container flex-1">
-              <img src="assets/mobile-app.png" alt="App Preview" />
+            <div class="image-container contact-img flex-1">
+              <img src="assets/mobile-app.png" alt="Foodie mobile app preview" />
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ================= Footer ================= -->
     <footer>
-      <div class="wapper flex wrap between gap-4">
-        <div class="footer-col flex-2">
-          <a href="#" class="logo">Foodie<span>.</span></a>
-          <p class="para">Delivering happiness, one meal at a time. Your favorite food is just a tap away.</p>
-          <div class="social-links flex gap-2">
-            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+      <div class="wapper footer-wrap flex wrap between gap-4">
+        <div class="footer-col brand">
+          <a href="#home" class="logo">Foodie<span>.</span></a>
+          <p>Delivering happiness, one meal at a time. Your favorite food is just a tap away.</p>
+          <div class="social-links flex gap-1">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
 
-        <div class="footer-col flex-1">
+        <div class="footer-col">
           <h4>Quick Links</h4>
-          <ul class="flex column gap-1">
+          <ul class="f-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#services">Services</a></li>
@@ -296,40 +425,75 @@
           </ul>
         </div>
 
-        <div class="footer-col flex-1">
+        <div class="footer-col">
           <h4>Support</h4>
-          <ul class="flex column gap-1">
+          <ul class="f-links">
             <li><a href="#">Help Center</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
           </ul>
         </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="f-contact">
+            <li><i class="fa-solid fa-phone"></i><span>+91 8271440843</span></li>
+            <li><i class="fa-solid fa-envelope"></i><span>panditranjay33@gmail.com</span></li>
+            <li><i class="fa-solid fa-location-dot"></i><span>Punjab, Phagwara</span></li>
+          </ul>
+        </div>
       </div>
+
       <div class="footer-bottom text-center">
-        <p>&copy; 2024 Foodie App. Designed for Food Lovers.</p>
+        <p>&copy; 2023 Foodie App. Crafted for food lovers <strong>Ranjay Prajapati</strong>.</p>
       </div>
     </footer>
 
-    <!-- Cart Overlay & Sidebar -->
-    <div class="cart-overlay"></div>
-    <div class="cart-sidebar flex column">
+    <!-- ================= Basket ================= -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar flex column" id="cart-sidebar" aria-label="Shopping basket">
       <div class="cart-header flex between">
-        <h3>My Basket</h3>
-        <i class="fa-solid fa-xmark close-cart"></i>
+        <h3><i class="fa-solid fa-bag-shopping"></i> My Basket</h3>
+        <button class="close-cart" aria-label="Close basket"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="cart-items flex-1">
-        <!-- Dynamic Items -->
-      </div>
+      <div class="cart-items flex-1"></div>
       <div class="cart-footer">
+        <p class="delivery-note" id="delivery-note">Free delivery on orders over <strong>$35</strong></p>
         <div class="cart-total flex between">
           <span>Total</span>
           <span class="total-price">$0.00</span>
         </div>
-        <button class="btn checkout-btn">Checkout Now</button>
+        <button class="btn checkout-btn w-full" id="checkout-btn">Checkout Now <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </aside>
+
+    <!-- ================= Checkout Modal ================= -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal">
+        <button class="modal-close" id="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
+        <div id="modal-summary-view">
+          <h3 id="modal-title"><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+          <div class="summary-items" id="summary-items"></div>
+          <div class="summary-rows">
+            <div class="s-row flex between"><span>Subtotal</span><span id="s-subtotal">$0.00</span></div>
+            <div class="s-row flex between"><span>Delivery Fee</span><span id="s-delivery">$0.00</span></div>
+            <div class="s-row s-total flex between"><span>Total</span><span id="s-total">$0.00</span></div>
+          </div>
+          <button class="btn w-full place-order-btn" id="place-order-btn">Place Order <i class="fa-solid fa-utensils"></i></button>
+        </div>
+
+        <div id="modal-success-view" class="hidden">
+          <div class="checkmark"><i class="fa-solid fa-check"></i></div>
+          <h3>Order Placed!</h3>
+          <p>Your delicious meal is being prepared.<br />Estimated arrival: <strong>25&ndash;30 minutes</strong>.</p>
+          <button class="btn" id="continue-btn">Keep Browsing</button>
+        </div>
       </div>
     </div>
 
-
+    <!-- ================= Misc UI ================= -->
+    <button id="scroll-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
