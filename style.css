@@ -137,6 +137,15 @@ h5 {
 }
 .section-head .para { margin-inline: auto; }
 
+/* Curly (wavy) underline under the OUR MENU heading */
+#menu .section-head h5 {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 9px;
+}
+
 /* ---------------- buttons ---------------- */
 .btn {
   display: inline-flex;
@@ -389,9 +398,9 @@ section#home { padding-block: 0; }
   color: #fff;
   flex: none;
 }
-.chip-1 { top: calc(16% + 4.5cm); left: -4%; }
+.chip-1 { top: calc(16% + 6.5cm); left: -4%; }
 .chip-1 i { background: linear-gradient(135deg, #ff7d01, #ff9a3d); }
-.chip-2 { top: calc(16% + 4.5cm); right: -4%; animation-delay: 1.2s; }
+.chip-2 { top: calc(16% + 6.5cm); right: -4%; animation-delay: 1.2s; }
 .chip-2 i { background: linear-gradient(135deg, #ffc93c, #ffaa00); }
 .float-card strong { display: block; font-size: 0.98rem; line-height: 1.15; }
 .float-card span { font-size: 0.78rem; color: var(--muted); }
@@ -1095,8 +1104,8 @@ footer .logo span { color: var(--primary); }
   .gap-4 { gap: 2.5rem; }
 
   /* Floating chips hug the artwork instead of overhanging */
-  .chip-1 { left: 0; }
-  .chip-2 { right: 0; }
+  .chip-1 { left: 0; top: calc(16% + 1.5cm); }
+  .chip-2 { right: 0; top: calc(16% + 1.5cm); }
 
   /* Search takes the full toolbar row */
   .search-box { width: 100%; max-width: 420px; }
