@@ -1,4 +1,9 @@
 # 🍔 Foodie — Food Delivery App
+https://food-delivery-app-gilt-delta.vercel.app/
+<img width="1917" height="905" alt="image" src="https://github.com/user-attachments/assets/2da21b1b-74bb-4649-81df-aa407d2eae70" />
+<img width="1916" height="790" alt="image" src="https://github.com/user-attachments/assets/f2583510-cf27-44be-9551-dfca877545b6" />
+
+
 
 A modern, responsive **Food Delivery Web App** built with pure **HTML, CSS, and JavaScript** — no frameworks, no build tools. Browse a menu of delicious dishes, filter and search in real time, manage your basket, and place an order through a slick checkout flow.
 
