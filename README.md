@@ -1,4 +1,4 @@
-# 🍔 Foodie — Food Delivery App
+#  Foodie — Food Delivery App
 https://food-delivery-app-gilt-delta.vercel.app/
 <img width="1917" height="905" alt="image" src="https://github.com/user-attachments/assets/2da21b1b-74bb-4649-81df-aa407d2eae70" />
 <img width="1916" height="790" alt="image" src="https://github.com/user-attachments/assets/f2583510-cf27-44be-9551-dfca877545b6" />
@@ -7,7 +7,7 @@ https://food-delivery-app-gilt-delta.vercel.app/
 
 A modern, responsive **Food Delivery Web App** built with pure **HTML, CSS, and JavaScript** — no frameworks, no build tools. Browse a menu of delicious dishes, filter and search in real time, manage your basket, and place an order through a slick checkout flow.
 
-## ✨ Features
+## Features
 
 ### Menu & Discovery
 - 8 dishes across 5 categories (Burgers, Pizza, Chicken, Rolls & Wraps, Pasta)
@@ -34,15 +34,9 @@ A modern, responsive **Food Delivery Web App** built with pure **HTML, CSS, and 
 - Fully responsive: desktop → tablet → mobile breakpoints
 - Respects `prefers-reduced-motion`
 
-## 🛠 Tech Stack
-| Layer | Tech |
-|---|---|
-| Structure | HTML5 (semantic sections, ARIA labels) |
-| Styling | Modern CSS (custom properties, grid/flexbox, keyframe animations) |
-| Logic | Vanilla JavaScript (ES6+ IIFE, event delegation, IntersectionObserver) |
-| Libraries via CDN | Font Awesome 6.6 · Swiper 12 |
+##  Tech Stack : HTML< CSS AND Javascript
 
-## 🚀 Run It
+##  Run It
 No build step required — just open `index.html` in any modern browser:
 
 ```
@@ -50,16 +44,7 @@ double-click index.html
 ```
 or use VS Code's **Live Server** extension for auto-reload during development.
 
-## 📁 Project Structure
-```
-Food-Delivery-App/
-├── index.html      # Page structure (hero, services, menu, reviews, contact…)
-├── style.css       # Design system + components + responsive rules
-├── script.js       # Cart, search/filter, checkout modal, UI behaviors
-└── assets/         # Food images, hero art, profile photos, icons
-```
-
-## 🔮 Future Improvements
+## Future Improvements
 - User authentication & saved addresses
 - Order history screen
 - Real backend integration
